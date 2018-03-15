@@ -1,15 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Navigation } from 'react-native-navigation';
+import Icon from 'react-native-vector-icons/Ionicons';
 
  const startTabs = () => {
-    Navigation.startTabBasedApp({
-        tabs:[{
-            screen: "bx.marketScreen",
-            label: "Market",
-        },{
-            screen: "bx.completedOrderScreen",
-            label: "Completed",
-        }]
+    Promise.all([
+        Icon.getImageSource("md-cash", 30),
+        Icon.getImageSource("md-list", 30)
+    ]).then(source => {
+        Navigation.startTabBasedApp({
+            tabs:[{
+                screen: "bx.marketScreen",
+                label: "Market",
+                icon: source[0]
+            },{
+                screen: "bx.completedOrderScreen",
+                label: "Completed",
+                icon: source[1]
+            }]
+        })
     })
 };
 
