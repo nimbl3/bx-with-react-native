@@ -1,23 +1,17 @@
 import React from 'react';
+import { Navigation } from 'react-native-navigation';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
-  }
-}
+import MarketScreen from './src/screens/MarketScreen/MarketScreen';
+import ActiveBuyOrderScreen from './src/screens/OrderScreen/ActiveBuyOrderScreen';
+import ActiveSellOrderScreen from './src/screens/OrderScreen/ActiveSellOrderScreen';
+import CompletedOrderScreen from './src/screens/CompletedOrderScreen/CompletedOrderScreen';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+import startTabs from './src/screens/MainTabs/startMainTabs';
+
+Navigation.registerComponent("bx.marketScreen", () => MarketScreen);
+Navigation.registerComponent("bx.activeBuyOrderScreen", () => ActiveBuyOrderScreen);
+Navigation.registerComponent("bx.activeSellOrderScreen", () => ActiveSellOrderScreen);
+Navigation.registerComponent("bx.completedOrderScreen", () => CompletedOrderScreen);
+
+startTabs();
