@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View, Text, ListView, StyleSheet } from 'react-native';
-import Item from './Item';
 
 const styles = StyleSheet.create({
     container: { backgroundColor: '#F0F0F0' },
