@@ -13,7 +13,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
                 label: "Market",
                 icon: source[0]
             },{
-                screen: "bx.completedOrderScreen",
+                screen: "bx.authScreen",
                 label: "Completed",
                 icon: source[1]
             }]
