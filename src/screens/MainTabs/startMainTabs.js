@@ -7,17 +7,17 @@ import Icon from 'react-native-vector-icons/Ionicons';
         Icon.getImageSource("ios-list-box-outline", 30),
         Icon.getImageSource("md-cash", 30)
     ]).then(source => {
-
-        tabs = [{
-            screen: "bx.marketScreen",
-            label: "Market",
-            icon: source[0]
-        }]
-
-        tabs.push({screen: isLoggedIn ? "bx.balanceScreen" : "bx.authScreen", label: "Balance", icon: source[0]})
-
         Navigation.startTabBasedApp({
-            tabs: tabs
+            tabs: [
+                {
+                    screen: "bx.marketScreen",
+                    label: "Market",
+                    icon: source[0]
+                },
+                {
+                    screen: isLoggedIn ? "bx.balanceScreen" : "bx.authScreen",
+                    label: "Balance", 
+                    icon: source[1]}]
         })
     })
 };
