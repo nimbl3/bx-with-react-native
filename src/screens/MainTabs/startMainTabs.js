@@ -4,8 +4,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
  const startTabs = () => {
     Promise.all([
-        Icon.getImageSource("md-cash", 30),
-        Icon.getImageSource("md-list", 30)
+        Icon.getImageSource("ios-list-box-outline", 30),
+        Icon.getImageSource("md-cash", 30)
     ]).then(source => {
         Navigation.startTabBasedApp({
             tabs:[{
@@ -13,8 +13,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
                 label: "Market",
                 icon: source[0]
             },{
-                screen: "bx.completedOrderScreen",
-                label: "Completed",
+                screen: "bx.balance",
+                label: "Balance",
                 icon: source[1]
             }]
         })
