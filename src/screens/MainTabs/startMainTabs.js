@@ -11,10 +11,12 @@ import Icon from 'react-native-vector-icons/Ionicons';
             tabs:[{
                 screen: "bx.marketScreen",
                 label: "Market",
+                title: "Market",
                 icon: source[0]
             },{
-                screen: "bx.completedOrderScreen",
-                label: "Completed",
+                screen: "bx.authScreen",
+                label: "Balance",
+                title: "Balance",
                 icon: source[1]
             }]
         })
