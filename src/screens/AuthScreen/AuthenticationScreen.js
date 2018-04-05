@@ -4,26 +4,27 @@ import AuthenticationForm from './AuthenticationForm';
 import BxLogo from '../../assets/images/bx_logo.png';
 
 export default class AuthenticationScreen extends Component {
+  state = {
+    apiKey: '',
+    apiSecret: '',
+  };
 
-
-  setState() {
-    {
-      apiKey: "",
-
-    apiSecret: ""
-  }
-  }
-
-  submitHandler() {
-    
-  }
+  submitHandler() {}
 
   render() {
     return (
       <View style={styles.view}>
         <View style={styles.container}>
-          <Image style={styles.image} source={ BxLogo } />
-          <AuthenticationForm didSubmitHandler={ this.submitHandler }  />
+          <Image style={styles.image} source={BxLogo} />
+          <AuthenticationForm
+            didSubmitHandler={() => this.submitHandler()}
+            onKeyChange={key => {
+              this.setState({ apiKey: key });
+            }}
+            onSecretChange={secret => {
+              this.setState({ apiSecret: secret });
+            }}
+          />
         </View>
       </View>
     );
@@ -47,6 +48,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: -130,
     left: '50%',
-    marginLeft: -50
+    marginLeft: -50,
   },
 });

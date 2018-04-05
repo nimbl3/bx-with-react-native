@@ -75,6 +75,7 @@ export default class AuthenticationTextInput extends Component {
             underlineColorAndroid="transparent"
             autoCorrect={false}
             placeholder={this.props.placeholder}
+            onChangeText={ (text) => { this.props.onChangeText(text) } }
           />
           <TouchableOpacity style={this.styles.button} onPress={ this.onPressHandler }>
             <View style={{ backgroundColor: 'white' }}>
@@ -97,6 +98,7 @@ export default class AuthenticationTextInput extends Component {
           underlineColorAndroid="transparent"
           autoCorrect={false}
           placeholder={this.props.placeholder}
+          onChangeText={ (text) => { this.props.onChangeText(text) } }
         />
       </View>
     );
