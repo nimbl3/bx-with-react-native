@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Image, View, StyleSheet } from 'react-native';
+import { Navigation } from 'react-native-navigation';
 import AuthenticationForm from './AuthenticationForm';
 import BxLogo from '../../assets/images/bx_logo.png';
 
@@ -9,7 +10,16 @@ export default class AuthenticationScreen extends Component {
     apiSecret: '',
   };
 
-  submitHandler() {}
+
+  submitHandler() {
+    this.props.navigator.push({
+      screen: 'bx.marketScreen',
+      navigatorStyle: {
+        navBarHidden: false,
+      },
+      animation: ""
+    })
+  }
 
   render() {
     return (

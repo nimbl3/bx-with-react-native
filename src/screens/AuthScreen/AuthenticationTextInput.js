@@ -13,7 +13,10 @@ import {
 export default class AuthenticationTextInput extends Component {
   constructor(props) {
     super(props);
-    this.withSubmitButton = Object.is(props.withSubmitButton, undefined) ? false : props.withSubmitButton;
+    this.withSubmitButton = false;
+    if (props.withSubmitButton == true) {
+      this.withSubmitButton = true;
+    }
     this.styles = this.createStyle(props);
     if (this.withSubmitButton) {
       this.onPressHandler = props.didSubmitHandler
