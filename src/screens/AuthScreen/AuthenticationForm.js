@@ -1,41 +1,40 @@
-import React, { Component } from 'react'
-import { StyleSheet, View, TextInput, Button } from 'react-native';
+import React, { Component } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import AuthenticationTextInput from './AuthenticationTextInput';
 
+export default class AuthenticationForm extends Component {
+  constructor(props) {
+    super(props);
+    this.styles = this.createStyle(props);
+  }
 
-const formComponent = (props) => (
-        <View style={ styles.formContainer }>
-            <View style={ styles.textInputContainer }>
-                <TextInput 
-                    style={ styles.textField } 
-                    placeholder={"API Key"}
-                    onChangeText={ (text) => props.didFillKey(text) }
-                />
-                <TextInput 
-                    style={ styles.textField } 
-                    placeholder={ "API Secret" }
-                    onChangeText={ (text) => props.didFillSecret(text) }
-                />
-            </View>
-            <Button 
-                title={ "Authenticate" } 
-                onPress={ props.didSubmitHandler }
-            />
-        </View>
-)
+  createStyle(props) {
+    this.height = 50;
 
-const styles = StyleSheet.create({
-    textField: {
-        height: 40,
-        paddingLeft: 10,
-        marginBottom: 10,
-        backgroundColor: '#fff',
-    },
-    textInputContainer: {
-
-    },
-    formContainer: {
-        
-    },
-})
-
-export default formComponent
+    return StyleSheet.create({
+      formContainer: {
+        flexDirection: 'column',
+      },
+      loginText: {
+        fontFamily: 'BrixSansMedium',
+        fontSize: this.height / 3,
+        color: 'white',
+        textAlign: 'center',
+      },
+    });
+  }
+  render() {
+    return (
+      <View style={this.styles.formContainer}>
+        <Text style={this.styles.loginText}>Login</Text>
+        <AuthenticationTextInput height={this.height} placeholder={'API Key'} />
+        <AuthenticationTextInput
+          height={this.height}
+          placeholder={'API Secret'}
+          withSubmitButton={ true }
+          didSubmitHandler={ this.props.didSubmitHandler }
+        />
+      </View>
+    );
+  }
+}
