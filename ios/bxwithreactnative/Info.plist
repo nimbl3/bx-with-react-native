@@ -52,6 +52,17 @@
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
 		<string>Brix Sans Medium.ttf</string>
+		<string>Brix Sans Black Italic.ttf</string>
+		<string>Brix Sans Black.ttf</string>
+		<string>Brix Sans Bold Italic.ttf</string>
+		<string>Brix Sans Bold.ttf</string>
+		<string>Brix Sans ExtraLight Italic.ttf</string>
+		<string>Brix Sans ExtraLight.ttf</string>
+		<string>Brix Sans Italic.ttf</string>
+		<string>Brix Sans Light Italic.ttf</string>
+		<string>Brix Sans Light.ttf</string>
+		<string>Brix Sans Medium Italic.ttf</string>
+		<string>Brix Sans Regular.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

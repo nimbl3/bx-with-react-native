@@ -1,20 +1,16 @@
 import React from 'react';
-import { TabBarBottom, StackNavigator, TabBarBottomProps, TabNavigator } from 'react-navigation';
+import { StackNavigator } from 'react-navigation';
 import { StyleSheet, Text, View } from 'react-native';
 
-import MarketScreen from './src/screens/MarketScreen/MarketScreen';
-import BalanceScreen from './src/screens/BalanceScreen/BalanceScreen';
 import AuthenticationScreen from './src/screens/AuthScreen/AuthenticationScreen';
+import MainTabBarScreen from './src/screens/MainTabBarScreen/MainTabBarScreen';
+import MainFlowController from './src/flowController/MainFlowController'
 
-const stackNavigation = StackNavigator({
-  
-});
-
-const mainTabBar = TabNavigator({
-
-});
-
-
+export default class App extends React.Component {
+  render() {
+    return false ? <View /> : <MainFlowController />
+  }
+}
 
 
 // const getAPIFromPersistent = () => {
