@@ -8,7 +8,7 @@ import MainFlowController from './src/flowController/MainFlowController'
 
 export default class App extends React.Component {
   render() {
-    return false ? <View /> : <MainFlowController />
+    return <MainFlowController />
   }
 }
 
