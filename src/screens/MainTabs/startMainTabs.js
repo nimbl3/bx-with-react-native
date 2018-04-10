@@ -8,17 +8,25 @@ import Icon from 'react-native-vector-icons/Ionicons';
         Icon.getImageSource("md-list", 30)
     ]).then(source => {
         Navigation.startTabBasedApp({
-            tabs:[{
-                screen: "bx.marketScreen",
-                label: "Market",
-                title: "Market",
-                icon: source[0]
-            },{
-                screen: "bx.authScreen",
-                label: "Balance",
-                title: "Balance",
-                icon: source[1]
-            }]
+            // tabs:[{
+            //     screen: "bx.marketScreen",
+            //     label: "Market",
+            //     title: "Market",
+            //     icon: source[0]
+            // },{
+            //     screen: "bx.authScreen",
+            //     label: "Balance",
+            //     title: "Balance",
+            //     icon: source[1]
+            // }]
+            tabs: [
+                {
+                    screen: "bx.authenticationScreen",
+                    label: "TEST",
+                    title: "TEST",
+                    icon: source[0]
+                }
+            ]
         })
     })
 };

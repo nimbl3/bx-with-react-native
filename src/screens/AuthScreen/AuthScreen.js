@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, Button, AsyncStorage } from 'react-native';
 
-import AuthenticationForm from './AuthenticationForm'
+import AuthenticationForm from './AuthForm'
 import BalanceScreen from '../BalanceScreen/BalanceScreen'
 export default class AuthScreen extends Component {
 
