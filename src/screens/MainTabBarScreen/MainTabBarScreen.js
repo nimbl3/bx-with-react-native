@@ -3,9 +3,9 @@ import {} from 'react-native';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 import DummyScreen from '../DummyScreen/DummyScreen';
 
-class MainTabBarController extends React.Component {
+export default class MainTabBarController extends React.Component {
   render() {
-    return TabNavigator({
+    const TabBar = TabNavigator({
       Dashboard: {
         screen: DummyScreen,
       },
@@ -15,8 +15,11 @@ class MainTabBarController extends React.Component {
       Wallet: {
         screen: DummyScreen,
       },
+    }, {
+      tabBarPosition: 'bottom',
+      tabBarComponent: TabBarBottom,
+      
     });
+    return <TabBar />
   }
 }
-
-export default MainTabBarController;
