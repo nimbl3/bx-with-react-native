@@ -11,8 +11,7 @@ class AuthenticationScreen extends React.Component {
   };
 
   submitHandler() {
-    // const { navigate } = this.props.navigate;
-    // navigate('Dashboard', {});
+    this.props.navigation.navigate('MainTabBarScreen');
   }
 
   render() {
@@ -21,7 +20,9 @@ class AuthenticationScreen extends React.Component {
         <View style={styles.container}>
           <Image style={styles.image} source={BxLogo} />
           <AuthenticationForm
-            didSubmitHandler={() => this.submitHandler()}
+            didSubmitHandler={() => {
+              this.submitHandler();
+            }}
             onKeyChange={key => {
               this.setState({ apiKey: key });
             }}
@@ -55,6 +56,5 @@ const styles = StyleSheet.create({
     marginLeft: -50,
   },
 });
-
 
 export default AuthenticationScreen;
