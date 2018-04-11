@@ -18,7 +18,8 @@ export default class MainTabBarController extends React.Component {
     }, {
       tabBarPosition: 'bottom',
       tabBarComponent: TabBarBottom,
-      
+      swipeEnabled: false,
+      animationEnabled: false,
     });
     return <TabBar />
   }
