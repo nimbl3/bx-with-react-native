@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
-import AuthenticationScreen from '../screens/AuthScreen';
-import MainTabBarScreen from '../screens/MainTabBarScreen/MainTabBarScreen';
+import AuthenticationScreen from '../Screens/AuthScreen';
+import MainTabBarScreen from '../Screens/MainTabBarScreen';
 import { StackNavigator } from 'react-navigation';
 
 const stack = StackNavigator({

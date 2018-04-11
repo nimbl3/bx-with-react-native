@@ -3,7 +3,7 @@ import { Image, View, StyleSheet } from 'react-native';
 import AuthenticationForm from '../../components/AuthenticationScreen/AuthenticationForm';
 import BxLogo from '../../assets/images/bx_logo.png';
 
-import AuthManager from '../../managers/AuthManager'
+import AuthManager from '../../Managers/AuthManager'
 import { StackNavigator } from 'react-navigation';
 
 class AuthenticationScreen extends React.Component {

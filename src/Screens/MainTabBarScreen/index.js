@@ -1,7 +1,7 @@
 import React from 'react';
 import {} from 'react-native';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
-import DummyScreen from '../DummyScreen/DummyScreen';
+import DummyScreen from '../DummyScreen/';
 
 export default class MainTabBarController extends React.Component {
   render() {

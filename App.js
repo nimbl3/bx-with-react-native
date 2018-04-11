@@ -2,10 +2,9 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 import { StyleSheet, Text, View } from 'react-native';
 
-import AuthenticationScreen from './src/screens/AuthScreen';
-import MainTabBarScreen from './src/screens/MainTabBarScreen/MainTabBarScreen';
+import AuthenticationScreen from './src/Screens/AuthScreen';
 import MainFlowController from './src/FlowControllers/MainFlowController';
-import AuthManager from './src/managers/AuthManager';
+import AuthManager from './src/Managers/AuthManager';
 
 export default class App extends React.Component {
   state = {
