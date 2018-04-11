@@ -5,15 +5,13 @@ import MainTabBarScreen from '../screens/MainTabBarScreen/MainTabBarScreen';
 import { StackNavigator } from 'react-navigation';
 
 const stack = StackNavigator({
-  AuthenticationScreen: {
-    screen: AuthenticationScreen,
-    navigationOptions: {
-      header: null,
-    },
-  },
   MainTabBarScreen: {
     screen: MainTabBarScreen,
-  }
+    navigationOptions: {
+      headerLeft: null,
+      gesturesEnable: false,
+    },
+  },
 });
 
 export default stack;

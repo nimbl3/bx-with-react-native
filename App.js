@@ -4,14 +4,25 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import AuthenticationScreen from './src/screens/AuthScreen/AuthenticationScreen';
 import MainTabBarScreen from './src/screens/MainTabBarScreen/MainTabBarScreen';
-import MainFlowController from './src/flowController/MainFlowController'
+import MainFlowController from './src/flowController/MainFlowController';
 
 export default class App extends React.Component {
+  state = {
+    isLoggedIn: false,
+  };
+
   render() {
-    return <MainFlowController />
+    return !this.state.isLoggedIn ? (
+      <AuthenticationScreen
+        didAuthenCompletion={isValid => {
+          this.setState({ isLoggedIn: isValid });;
+        }}
+      />
+    ) : (
+      <MainFlowController />
+    );
   }
 }
-
 
 // const getAPIFromPersistent = () => {
 //   Promise.all([

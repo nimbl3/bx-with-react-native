@@ -11,7 +11,7 @@ class AuthenticationScreen extends React.Component {
   };
 
   submitHandler() {
-    this.props.navigation.navigate('MainTabBarScreen');
+    this.props.didAuthenCompletion(true)
   }
 
   render() {
