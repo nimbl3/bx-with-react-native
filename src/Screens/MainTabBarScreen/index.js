@@ -1,13 +1,14 @@
-import React from 'react';
-import {} from 'react-native';
+import React, { Component } from 'react';
+import { View } from 'react-native';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 import DummyScreen from '../DummyScreen/';
+import DashboardScreen from '../DashboardScreen/';
 
-export default class MainTabBarController extends React.Component {
+export default class MainTabBarController extends Component {
   render() {
     const TabBar = TabNavigator({
       Dashboard: {
-        screen: DummyScreen,
+        screen: DashboardScreen,
       },
       Create: {
         screen: DummyScreen,
