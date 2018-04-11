@@ -2,25 +2,32 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 import { StyleSheet, Text, View } from 'react-native';
 
-import AuthenticationScreen from './src/screens/AuthScreen/AuthenticationScreen';
+import AuthenticationScreen from './src/screens/AuthScreen';
 import MainTabBarScreen from './src/screens/MainTabBarScreen/MainTabBarScreen';
-import MainFlowController from './src/flowController/MainFlowController';
+import MainFlowController from './src/FlowControllers/MainFlowController';
+import AuthManager from './src/managers/AuthManager';
 
 export default class App extends React.Component {
   state = {
-    isLoggedIn: false,
+
   };
 
   render() {
-    return !this.state.isLoggedIn ? (
-      <AuthenticationScreen
+    AuthManager.getAPIFromPersistent((key, secret, isValid) => {
+      this.setState({ isLoggedIn: isValid });
+    });
+
+    if (this.state.isLoggedIn === false) {
+      return <AuthenticationScreen
         didAuthenCompletion={isValid => {
-          this.setState({ isLoggedIn: isValid });;
+          this.setState({ isLoggedIn: isValid });
         }}
-      />
-    ) : (
-      <MainFlowController />
-    );
+      />;
+    } else if (this.state.isLoggedIn === true) {
+      return <MainFlowController />;
+    } else {
+      return <View />;
+    }
   }
 }
 

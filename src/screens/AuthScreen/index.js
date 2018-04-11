@@ -1,7 +1,9 @@
 import React from 'react';
 import { Image, View, StyleSheet } from 'react-native';
-import AuthenticationForm from './AuthenticationForm';
+import AuthenticationForm from '../../components/AuthenticationScreen/AuthenticationForm';
 import BxLogo from '../../assets/images/bx_logo.png';
+
+import AuthManager from '../../managers/AuthManager'
 import { StackNavigator } from 'react-navigation';
 
 class AuthenticationScreen extends React.Component {
@@ -10,10 +12,6 @@ class AuthenticationScreen extends React.Component {
     apiSecret: '',
   };
 
-  submitHandler() {
-    this.props.didAuthenCompletion(true)
-  }
-
   render() {
     return (
       <View style={styles.view}>
@@ -21,7 +19,13 @@ class AuthenticationScreen extends React.Component {
           <Image style={styles.image} source={BxLogo} />
           <AuthenticationForm
             didSubmitHandler={() => {
-              this.submitHandler();
+              AuthManager.saveAPI(
+                this.state.apiKey,
+                this.state.apiSecret,
+                isValid => {
+                  this.props.didAuthenCompletion(isValid);
+                }
+              );
             }}
             onKeyChange={key => {
               this.setState({ apiKey: key });

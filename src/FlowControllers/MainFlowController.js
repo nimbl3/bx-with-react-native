@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import AuthenticationScreen from '../screens/AuthScreen/AuthenticationScreen';
+import AuthenticationScreen from '../screens/AuthScreen';
 import MainTabBarScreen from '../screens/MainTabBarScreen/MainTabBarScreen';
 import { StackNavigator } from 'react-navigation';
 
