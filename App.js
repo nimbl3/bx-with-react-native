@@ -1,15 +1,12 @@
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
 import { StyleSheet, Text, View } from 'react-native';
-
 import AuthenticationScreen from './src/Screens/AuthScreen';
 import MainFlowController from './src/FlowControllers/MainFlowController';
 import AuthManager from './src/Managers/AuthManager';
 
 export default class App extends React.Component {
-  state = {
-
-  };
+  state = {};
 
   render() {
     AuthManager.getAPIFromPersistent((key, secret, isValid) => {
@@ -17,11 +14,13 @@ export default class App extends React.Component {
     });
 
     if (this.state.isLoggedIn === false) {
-      return <AuthenticationScreen
-        didAuthenCompletion={isValid => {
-          this.setState({ isLoggedIn: isValid });
-        }}
-      />;
+      return (
+        <AuthenticationScreen
+          didAuthenCompletion={isValid => {
+            this.setState({ isLoggedIn: isValid });
+          }}
+        />
+      );
     } else if (this.state.isLoggedIn === true) {
       return <MainFlowController />;
     } else {
@@ -29,38 +28,3 @@ export default class App extends React.Component {
     }
   }
 }
-
-// const getAPIFromPersistent = () => {
-//   Promise.all([
-//     AsyncStorage.getItem('apiKey'),
-//     AsyncStorage.getItem('apiSecret'),
-//   ]).then(value => {
-//     this.setState({ key: value[0], secret: value[1] });
-//     if (value[0].length == 12 && value[1].length == 12) {
-//       this.setState({ isLoggedIn: true });
-//     }
-//   });
-// };
-
-// const isLoggedIn = () => {
-//   return false;
-// }
-
-// const authScreen = {
-//   screen: 'bx.authenticationScreen',
-//   navigatorStyle: {
-//     navBarHidden: true,
-//   },
-// };
-
-// const marketScreen = {
-//     screen: 'bx.marketScreen',
-//     navigatorStyle: {
-//       navBarHidden: true,
-//     },
-//   };
-
-// Navigation.startSingleScreenApp({
-//   screen: !isLoggedIn() ? authScreen : marketScreen,
-//   animationType: 'fade',
-// });
