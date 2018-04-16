@@ -1,7 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 
 export default class AccountScreen extends React.Component {
+
+  static navigationOptions = ({navigate, navigation}) => ({
+    title: "Account",
+    headerRight: <Button title={"Close"} onPress={ () => navigation.goBack() }/>
+  })
   render() {
     return (
       <View style={styles.view}>
