@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 import DummyScreen from '../DummyScreen/';
-import DashboardScreen from '../DashboardScreen/';
+import DashboardFlow from '../../FlowControllers/DashboardFlow'
 
 export default class MainTabBarController extends Component {
   render() {
     const TabBar = TabNavigator({
       Dashboard: {
-        screen: DashboardScreen,
+        screen: DashboardFlow,
       },
       Create: {
         screen: DummyScreen,
