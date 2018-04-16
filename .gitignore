@@ -20,3 +20,6 @@ yarn-error.log*
 android/build
 android/app/build
 android/.gradle
+/ios/bxwithreactnative.xcodeproj/project.xcworkspace/xcuserdata/dekablade01.xcuserdatad
+/.idea
+/android/.idea

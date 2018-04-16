@@ -1,25 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Image, View, StyleSheet } from 'react-native';
-import { Navigation } from 'react-native-navigation';
-import AuthenticationForm from './AuthenticationForm';
+import AuthenticationForm from '../../components/AuthenticationScreen/AuthenticationForm';
 import BxLogo from '../../assets/images/bx_logo.png';
 
-export default class AuthenticationScreen extends Component {
+import AuthManager from '../../Managers/AuthManager'
+import { StackNavigator } from 'react-navigation';
+
+class AuthenticationScreen extends React.Component {
   state = {
     apiKey: '',
     apiSecret: '',
   };
-
-
-  submitHandler() {
-    this.props.navigator.push({
-      screen: 'bx.marketScreen',
-      navigatorStyle: {
-        navBarHidden: false,
-      },
-      animation: ""
-    })
-  }
 
   render() {
     return (
@@ -27,7 +18,15 @@ export default class AuthenticationScreen extends Component {
         <View style={styles.container}>
           <Image style={styles.image} source={BxLogo} />
           <AuthenticationForm
-            didSubmitHandler={() => this.submitHandler()}
+            didSubmitHandler={() => {
+              AuthManager.saveAPI(
+                this.state.apiKey,
+                this.state.apiSecret,
+                isValid => {
+                  this.props.didAuthenCompletion(isValid);
+                }
+              );
+            }}
             onKeyChange={key => {
               this.setState({ apiKey: key });
             }}
@@ -61,3 +60,5 @@ const styles = StyleSheet.create({
     marginLeft: -50,
   },
 });
+
+export default AuthenticationScreen;
