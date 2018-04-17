@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 import AccountCell from '../../components/AccountScreen/AccountCell';
 import TextButton from '../../components/common/TextButton';
+import DisclosureCell from '../../components/common/DisclosureCell';
+import ListViewSectionContainer from '../../components/common/ListViewSectionContainer';
 export default class AccountScreen extends React.Component {
   static navigationOptions = ({ navigate, navigation }) => ({
     title: 'Account',
@@ -24,7 +26,23 @@ export default class AccountScreen extends React.Component {
     };
     return (
       <View style={styles.view}>
-        <AccountCell userInfo={userInfo} />
+        <ListViewSectionContainer withTopMargin={false} >
+          <AccountCell userInfo={userInfo} />
+        </ListViewSectionContainer>
+        <ListViewSectionContainer withTopMargin={true}>
+          <DisclosureCell
+            text="Payment Information"
+            onPress={() => {
+              alert('navigate to payment');
+            }}
+          />
+          <DisclosureCell
+            text="Term & Condition"
+            onPress={() => {
+              alert('navigate to payment');
+            }}
+          />
+        </ListViewSectionContainer>
       </View>
     );
   }
@@ -39,5 +57,5 @@ const styles = StyleSheet.create({
   },
   header: {
     paddingRight: 17,
-  }
+  },
 });
