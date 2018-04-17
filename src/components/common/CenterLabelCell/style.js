@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
-const styles = StyleSheet.create({
+const styles = (props) => StyleSheet.create({
     touchable: {
         width: '100%',
         backgroundColor: 'white',
@@ -11,9 +11,9 @@ const styles = StyleSheet.create({
         borderBottomWidth: 0.5,
     },
     contentView: {
-        justifyContent: 'space-between',
         flexDirection: 'row',
         alignItems: 'center',
+        justifyContent: 'center',
         paddingLeft: 19,
         paddingRight: 19,
 
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     text: {
         fontFamily: 'BrixSansRegular',
         fontSize: 17,
-        color: "black",
+        color: props.textColor,
     },
 });
 export default styles;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-import UserInfo from './UserInfo';
+import UserInfo from '../UserInfo';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Style from './style';

@@ -4,7 +4,13 @@ import AccountCell from '../../components/AccountScreen/AccountCell';
 import TextButton from '../../components/common/TextButton';
 import DisclosureCell from '../../components/common/DisclosureCell';
 import ListViewSectionContainer from '../../components/common/ListViewSectionContainer';
+import ToggleCell from '../../components/common/ToggleCell';
+import CenterLabelCell from '../../components/common/CenterLabelCell'
 export default class AccountScreen extends React.Component {
+  state = {
+    enableNotification: true,
+  };
+
   static navigationOptions = ({ navigate, navigation }) => ({
     title: 'Account',
     headerRight: (
@@ -26,9 +32,19 @@ export default class AccountScreen extends React.Component {
     };
     return (
       <View style={styles.view}>
-        <ListViewSectionContainer withTopMargin={false} >
+        <ListViewSectionContainer withTopMargin={false}>
           <AccountCell userInfo={userInfo} />
         </ListViewSectionContainer>
+        <ListViewSectionContainer withTopMargin={true}>
+          <ToggleCell
+            onValueChange={value => {
+              this.setState({enableNotification: value})
+            }}
+            value={this.state.enableNotification}
+            text={'Notifications'}
+          />
+        </ListViewSectionContainer>
+
         <ListViewSectionContainer withTopMargin={true}>
           <DisclosureCell
             text="Payment Information"
@@ -37,12 +53,15 @@ export default class AccountScreen extends React.Component {
             }}
           />
           <DisclosureCell
-            text="Term & Condition"
+            text="Terms & Conditions"
             onPress={() => {
               alert('navigate to payment');
             }}
           />
         </ListViewSectionContainer>
+          <ListViewSectionContainer withTopMargin={true}>
+              <CenterLabelCell text={"Sign Out"}/>
+          </ListViewSectionContainer>
       </View>
     );
   }

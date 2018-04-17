@@ -1,10 +1,9 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Style from './style';
 
 const cell = props => {
-  const withTopMargin = props.withTopMargin || false;
   return (
     <TouchableOpacity style={Style.touchable}>
       <View style={Style.contentView}>

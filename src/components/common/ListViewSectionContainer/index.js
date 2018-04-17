@@ -4,10 +4,9 @@ import Style from './style'
 
 const view = (props) => {
     const withTopMargin = props.withTopMargin || false
-    if (withTopMargin) {
-        return <View style={Style.withTopMargin}>{ props.children }</View>
-    }
-    return <View style={Style.withoutTopMargin}>{ props.children }</View>
+    const style = Style({withTopMargin: withTopMargin});
+    return <View style={style.view}>{ props.children }</View>
+
 
 }
 
