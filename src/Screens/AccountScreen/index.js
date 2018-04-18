@@ -1,12 +1,13 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import AccountCell from '../../components/AccountScreen/AccountCell';
 import TextButton from '../../components/common/TextButton';
 import DisclosureCell from '../../components/common/DisclosureCell';
 import ListViewSectionContainer from '../../components/common/ListViewSectionContainer';
 import ToggleCell from '../../components/common/ToggleCell';
-import CenterLabelCell from '../../components/common/CenterLabelCell'
+import CenterLabelCell from '../../components/common/CenterLabelCell';
 export default class AccountScreen extends React.Component {
+  
   state = {
     enableNotification: true,
   };
@@ -24,6 +25,7 @@ export default class AccountScreen extends React.Component {
       </View>
     ),
   });
+
   render() {
     const userInfo = {
       imageURL: 'https://avatars1.githubusercontent.com/u/165856?s=460&v=4',
@@ -38,7 +40,7 @@ export default class AccountScreen extends React.Component {
         <ListViewSectionContainer withTopMargin={true}>
           <ToggleCell
             onValueChange={value => {
-              this.setState({enableNotification: value})
+              this.setState({ enableNotification: value });
             }}
             value={this.state.enableNotification}
             text={'Notifications'}
@@ -59,9 +61,9 @@ export default class AccountScreen extends React.Component {
             }}
           />
         </ListViewSectionContainer>
-          <ListViewSectionContainer withTopMargin={true}>
-              <CenterLabelCell text={"Sign Out"}/>
-          </ListViewSectionContainer>
+        <ListViewSectionContainer withTopMargin={true}>
+          <CenterLabelCell text={'Sign Out'} />
+        </ListViewSectionContainer>
       </View>
     );
   }

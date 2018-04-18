@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
     height: 71,
     paddingLeft: 19,
     paddingRight: 19,
-    
   },
   text: {
     fontFamily: 'BrixSansRegular',
@@ -19,4 +18,5 @@ const styles = StyleSheet.create({
     color: 'black',
   },
 });
+
 export default styles;

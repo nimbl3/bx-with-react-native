@@ -27,17 +27,21 @@ export default class AuthenticationForm extends Component {
     return (
       <View style={this.styles.formContainer}>
         <Text style={this.styles.loginText}>Login</Text>
-        <AuthenticationTextInput 
-        height={this.height}
-         placeholder={'API Key'} 
-         onChangeText={ (key) => { this.props.onKeyChange(key) } }/>
+        <AuthenticationTextInput
+          height={this.height}
+          placeholder={'API Key'}
+          onChangeText={key => {
+            this.props.onKeyChange(key);
+          }}
+        />
         <AuthenticationTextInput
           height={this.height}
           placeholder={'API Secret'}
-          withSubmitButton={ true }
-          didSubmitHandler={ this.props.didSubmitHandler }
-          onChangeText={(secret) => { 
-            this.props.onSecretChange(secret) } }
+          withSubmitButton={true}
+          didSubmitHandler={this.props.didSubmitHandler}
+          onChangeText={secret => {
+            this.props.onSecretChange(secret);
+          }}
         />
       </View>
     );
