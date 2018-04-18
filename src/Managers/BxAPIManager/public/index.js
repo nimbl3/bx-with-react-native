@@ -5,6 +5,7 @@ const ticker = (completion) => {
     fetch(BxAPIManager.hostname + BxAPIManager.endPoint.public.ticker)
     .then((response) => response.json())
     .then((responseJSON) => {
+        completion(responseJSON)
         return tickerMapper(responseJSON)
     });
 }
