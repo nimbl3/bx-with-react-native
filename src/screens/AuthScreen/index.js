@@ -1,10 +1,10 @@
 import React from 'react';
-import { Image, View, StyleSheet } from 'react-native';
-import AuthenticationForm from '../../components/AuthenticationScreen/AuthenticationForm';
+import { Image, View } from 'react-native';
+import AuthenticationForm from '../../components/screens/AuthenticationScreen/AuthenticationFrom/';
 import BxLogo from '../../assets/images/bx_logo.png';
+import Style from './style'
 
 import AuthManager from '../../Managers/AuthManager'
-import { StackNavigator } from 'react-navigation';
 
 class AuthenticationScreen extends React.Component {
   state = {
@@ -14,9 +14,9 @@ class AuthenticationScreen extends React.Component {
 
   render() {
     return (
-      <View style={styles.view}>
-        <View style={styles.container}>
-          <Image style={styles.image} source={BxLogo} />
+      <View style={Style.view}>
+        <View style={Style.container}>
+          <Image style={Style.image} source={BxLogo} />
           <AuthenticationForm
             didSubmitHandler={() => {
               AuthManager.saveAPI(
@@ -40,25 +40,5 @@ class AuthenticationScreen extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
-  view: {
-    flexDirection: 'column',
-    flex: 1,
-    backgroundColor: '#4198FF',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  container: {
-    width: '70%',
-  },
-  image: {
-    width: 100,
-    height: 100,
-    position: 'absolute',
-    top: -130,
-    left: '50%',
-    marginLeft: -50,
-  },
-});
 
 export default AuthenticationScreen;

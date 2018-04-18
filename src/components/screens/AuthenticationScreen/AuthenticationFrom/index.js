@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import AuthenticationTextInput from './AuthenticationTextInput';
+import AuthenticationTextInput from '../AuthenticationTextInput';
 
 export default class AuthenticationForm extends Component {
   constructor(props) {

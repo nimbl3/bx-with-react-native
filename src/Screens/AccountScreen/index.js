@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
-import AccountCell from '../../components/AccountScreen/AccountCell';
+import AccountCell from '../../components/screens/AccountScreen/AccountCell';
 import TextButton from '../../components/common/TextButton';
 import DisclosureCell from '../../components/common/DisclosureCell';
 import ListViewSectionContainer from '../../components/common/ListViewSectionContainer';
