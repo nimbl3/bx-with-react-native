@@ -11,6 +11,11 @@ export default class AuthManager {
     completion(true);
   }
 
+  static clear(completion) {
+      AsyncStorage.setItem('apiKey', "");
+      AsyncStorage.setItem('apiSecret', "");
+  }
+
   static getAPIFromPersistent(completion) {
     Promise.all([
       AsyncStorage.getItem('apiKey'),
