@@ -1,8 +1,6 @@
-import { StyleSheet } from 'react-native'
-
 const buttonWidth = require('Dimensions').get('window').width / 10;
 
-const styles = StyleSheet.create({
+const styles = {
   button: {
     width: buttonWidth,
     height: buttonWidth,
@@ -11,6 +9,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginRight:  - buttonWidth / 2,
   },
-});
+};
 
 export default styles;
