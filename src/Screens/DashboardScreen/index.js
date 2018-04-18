@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text,  } from 'react-native';
 import CircularImageButton from '../../components/common/CircularImageButton';
+import Styles from './style'
 
 export default class DashboardScreen extends Component {
   static navigationOptions = ({ navigate, navigation }) => ({
@@ -20,18 +21,9 @@ export default class DashboardScreen extends Component {
 
   render() {
     return (
-      <View style={styles.view}>
+      <View style={Styles.view}>
         <Text>Hello!, This is DashboardScreen</Text>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  view: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'white',
-  },
-});
