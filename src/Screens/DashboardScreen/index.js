@@ -5,6 +5,9 @@ import CircularImageButton from '../../components/common/CircularImageButton';
 export default class DashboardScreen extends Component {
   static navigationOptions = ({ navigate, navigation }) => ({
     title: 'Dashboard',
+    headerStyle: {
+      backgroundColor: 'white',
+    },
     headerLeft: (
       <CircularImageButton
         url={'https://avatars1.githubusercontent.com/u/6483170?s=460&v=4'}
@@ -29,6 +32,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(0, 255, 0, 1)',
+    backgroundColor: 'white',
   },
 });

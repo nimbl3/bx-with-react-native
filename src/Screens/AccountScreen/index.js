@@ -6,6 +6,7 @@ import DisclosureCell from '../../components/common/DisclosureCell';
 import ListViewSectionContainer from '../../components/common/ListViewSectionContainer';
 import ToggleCell from '../../components/common/ToggleCell';
 import CenterLabelCell from '../../components/common/CenterLabelCell';
+import AuthManager from '../../Managers/AuthManager'
 export default class AccountScreen extends React.Component {
   
   state = {
@@ -14,6 +15,9 @@ export default class AccountScreen extends React.Component {
 
   static navigationOptions = ({ navigate, navigation }) => ({
     title: 'Account',
+    headerStyle: {
+      backgroundColor: 'white',
+    },
     headerRight: (
       <View style={styles.header}>
         <TextButton
@@ -41,6 +45,7 @@ export default class AccountScreen extends React.Component {
           <ToggleCell
             onValueChange={value => {
               this.setState({ enableNotification: value });
+              alert(`Notification Turned: ${value}`)
             }}
             value={this.state.enableNotification}
             text={'Notifications'}
@@ -51,18 +56,18 @@ export default class AccountScreen extends React.Component {
           <DisclosureCell
             text="Payment Information"
             onPress={() => {
-              alert('navigate to payment');
+              alert('Payment Information');
             }}
           />
           <DisclosureCell
             text="Terms & Conditions"
             onPress={() => {
-              alert('navigate to payment');
+              alert('Terms & Conditions');
             }}
           />
         </ListViewSectionContainer>
         <ListViewSectionContainer withTopMargin={true}>
-          <CenterLabelCell text={'Sign Out'} />
+          <CenterLabelCell text={'Sign Out'} onPress={() => { AuthManager.clear(() => {})}}/>
         </ListViewSectionContainer>
       </View>
     );
