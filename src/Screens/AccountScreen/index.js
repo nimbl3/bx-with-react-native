@@ -1,14 +1,13 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import AccountCell from '../../components/AccountScreen/AccountCell';
 import TextButton from '../../components/common/TextButton';
 import DisclosureCell from '../../components/common/DisclosureCell';
 import ListViewSectionContainer from '../../components/common/ListViewSectionContainer';
 import ToggleCell from '../../components/common/ToggleCell';
 import CenterLabelCell from '../../components/common/CenterLabelCell';
-import AuthManager from '../../Managers/AuthManager'
+import AuthManager from '../../Managers/AuthManager';
 export default class AccountScreen extends React.Component {
-  
   state = {
     enableNotification: true,
   };
@@ -37,39 +36,45 @@ export default class AccountScreen extends React.Component {
       email: 'dekablade01@gmail.com',
     };
     return (
-      <View style={styles.view}>
-        <ListViewSectionContainer withTopMargin={false}>
-          <AccountCell userInfo={userInfo} />
-        </ListViewSectionContainer>
-        <ListViewSectionContainer withTopMargin={true}>
-          <ToggleCell
-            onValueChange={value => {
-              this.setState({ enableNotification: value });
-              alert(`Notification Turned: ${value}`)
-            }}
-            value={this.state.enableNotification}
-            text={'Notifications'}
-          />
-        </ListViewSectionContainer>
-
-        <ListViewSectionContainer withTopMargin={true}>
-          <DisclosureCell
-            text="Payment Information"
-            onPress={() => {
-              alert('Payment Information');
-            }}
-          />
-          <DisclosureCell
-            text="Terms & Conditions"
-            onPress={() => {
-              alert('Terms & Conditions');
-            }}
-          />
-        </ListViewSectionContainer>
-        <ListViewSectionContainer withTopMargin={true}>
-          <CenterLabelCell text={'Sign Out'} onPress={() => { AuthManager.clear(() => {})}}/>
-        </ListViewSectionContainer>
-      </View>
+      <ScrollView>
+        <View style={styles.view}>
+          <ListViewSectionContainer withTopMargin={false}>
+            <AccountCell userInfo={userInfo} />
+          </ListViewSectionContainer>
+          <ListViewSectionContainer withTopMargin={true}>
+            <ToggleCell
+              onValueChange={value => {
+                this.setState({ enableNotification: value });
+                alert(`Notification Turned: ${value}`);
+              }}
+              value={this.state.enableNotification}
+              text={'Notifications'}
+            />
+          </ListViewSectionContainer>
+          <ListViewSectionContainer withTopMargin={true}>
+            <DisclosureCell
+              text="Payment Information"
+              onPress={() => {
+                alert('Payment Information');
+              }}
+            />
+            <DisclosureCell
+              text="Terms & Conditions"
+              onPress={() => {
+                alert('Terms & Conditions');
+              }}
+            />
+          </ListViewSectionContainer>
+          <ListViewSectionContainer withTopMargin={true}>
+            <CenterLabelCell
+              text={'Sign Out'}
+              onPress={() => {
+                AuthManager.clear(() => {});
+              }}
+            />
+          </ListViewSectionContainer>
+        </View>
+      </ScrollView>
     );
   }
 }
