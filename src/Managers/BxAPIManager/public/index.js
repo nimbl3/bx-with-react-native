@@ -5,18 +5,19 @@ const ticker = (completion) => {
     fetch(BxAPIManager.hostname + BxAPIManager.endPoint.public.ticker)
     .then((response) => response.json())
     .then((responseJSON) => {
-        completion(responseJSON)
-        return tickerMapper(responseJSON)
+        tickerMapper(responseJSON, (results) => {
+            completion(true, results)
+        }) 
     });
 }
 
-const tickerMapper = (json) => {
+const tickerMapper = (json, completion) => {
     const numberOfKeys = Object.keys(json).length
-    const result = []
+    const results = []
     Object.keys(json).map((key) => {
-        result.push(json[key])
-        if (numberOfKeys == result.length) {
-            return result;
+        results.push(json[key])
+        if (numberOfKeys == results.length) {
+            completion(results)
         }
     })
 }
