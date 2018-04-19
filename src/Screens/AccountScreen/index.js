@@ -19,7 +19,6 @@ export default class AccountScreen extends React.Component {
       borderBottomWidth: 0,
     },
     headerLeft: null,
-
     headerRight: (
       <View style={styles.header}>
         <TextButton

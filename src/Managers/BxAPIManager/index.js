@@ -1,9 +1,7 @@
-const public = require("./public");
-const public = require("./private");
+const publicAPI = require('./public');
+const privateAPI = require('./private');
 
-const private = {};
-
-const hostname = "https://bx.in.th/api/"
+const hostname = 'https://bx.in.th/api/';
 
 const endPoint = {
   public: {
