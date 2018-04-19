@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import CircularImageButton from '../../components/common/CircularImageButton';
 import Styles from './style';
 import BxManager from '../../Managers/BxAPIManager';
+import WalletCollection from '../../components/screens/DashboardScreen/WalletCollection';
 
 export default class DashboardScreen extends Component {
   static navigationOptions = ({ navigate, navigation }) => ({
@@ -22,7 +23,7 @@ export default class DashboardScreen extends Component {
   render() {
     return (
       <View style={Styles.view}>
-        <Text>Hello!, This is DashboardScreen</Text>
+        <WalletCollection style={Styles.walletCollection}/>
       </View>
     );
   }
