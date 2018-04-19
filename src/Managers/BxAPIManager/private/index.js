@@ -3,21 +3,19 @@ import BxAPIManager from '../';
 import BxEncryptor from '../../../Helpers/APIEncryptor';
 
 const balance = completion => {
-  fetch(BxAPIManager.hostname + BxAPIManager.endPoint.private.balance)
-    .then(response => response.json())
-    .then(responseJSON => {});
+  fetchWithCredential(
+    BxAPIManager.hostname + BxAPIManager.endPoint.private.balance,
+    {},
+    completion
+  );
 };
 
 const buy = (pairing, secondaryAmount, rate, completion) => {
-  order(true, secondaryAmount, () => {
-    completion();
-  });
+  order(pairing, true, secondaryAmount, rate, completion);
 };
 
 const sell = (pairing, primaryAmount, rate, completion) => {
-  order(false, primaryAmount, () => {
-    completion();
-  });
+  order(pairing, true, primaryAmount, rate, completion);
 };
 
 const order = (pairing, isBuy, amount, rate, completion) => {
@@ -41,11 +39,7 @@ const fetchWithCredential = (url, body, completion) => {
     })
       .then(response => response.json())
       .then(responseJSON => {
-        if (!responseJSON.success) {
-          completion(null);
-          return;
-        }
-        completion(responseJSON);
+        completion(responseJSON.success, responseJSON);
       });
   });
 };
