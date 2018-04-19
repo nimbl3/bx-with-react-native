@@ -19,16 +19,7 @@ export default class DashboardScreen extends Component {
       />
     ),
   });
-
   render() {
-    BxManager.privateAPI.balance((isSuccess, object) => {
-      // console.log(object);
-    });
-
-    BxManager.publicAPI.ticker((isSuccess, object) => {
-      console.log(object)
-    })
-
     return (
       <View style={Styles.view}>
         <Text>Hello!, This is DashboardScreen</Text>
