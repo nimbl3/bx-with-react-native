@@ -22,7 +22,6 @@ export default class DashboardScreen extends Component {
 
   render() {
     BxManager.privateAPI.balance((isSuccess, object) => {
-      console.log("isSuccess: ", isSuccess)
       console.log(object);
     });
 

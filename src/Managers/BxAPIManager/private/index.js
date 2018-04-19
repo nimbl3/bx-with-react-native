@@ -7,8 +7,30 @@ const balance = completion => {
   fetchWithCredential(
     BxAPIManager.hostname + BxAPIManager.endPoint.private.balance,
     {},
-    completion
+    (isSuccess, responseObject) => {
+      if (!isSuccess) {
+        completion(false, null);
+        return;
+      }
+
+      balanceMapper(responseObject, balance => {
+        completion(true, balance);
+      });
+    }
   );
+};
+
+const balanceMapper = (json, completion) => {
+  const balances = [];
+  const balanceObject = json.balance;
+  const numberOfKeys = Object.keys(balanceObject).length;
+  Object.keys(balanceObject).map(wallet => {
+    const balance = { name: wallet };
+    balances.push(Object.assign(balance, json.balance[wallet]));
+    if (balances.length == numberOfKeys) {
+      completion(balances);
+    }
+  });
 };
 
 const buy = (pairing, secondaryAmount, rate, completion) => {
@@ -34,17 +56,13 @@ const order = (pairing, isBuy, amount, rate, completion) => {
 
 const fetchWithCredential = (url, body, completion) => {
   BxEncryptor.getQueryCredential(credential => {
-    bodyWithCredential = Object.assign(body, credential);
-
-    let string = queryString.stringify(bodyWithCredential)
-    console.log(string)
     fetch(url, {
       method: 'POST',
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
-        },
-      body: string,
+        Accept: 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+      },
+      body: queryString.stringify(Object.assign(body, credential)),
     })
       .then(response => response.json())
       .then(responseJSON => {
