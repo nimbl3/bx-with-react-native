@@ -10,8 +10,5 @@ export default StackNavigator({
   },
   AccountScreen: {
     screen: AccountScreen,
-    navigationOptions: {
-      headerLeft: null,
-    },
   },
 });

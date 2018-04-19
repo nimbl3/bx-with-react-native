@@ -1,9 +1,8 @@
-const public = require("./public");
-const public = require("./private");
+import publicAPI from './public'
+import privateAPI from './private'
 
-const private = {};
 
-const hostname = "https://bx.in.th/api/"
+const hostname = 'https://bx.in.th/api/';
 
 const endPoint = {
   public: {
@@ -14,4 +13,7 @@ const endPoint = {
     order: 'order/',
   },
 };
-export default { public, private, hostname, endPoint };
+
+export default { publicAPI, privateAPI, hostname, endPoint };
+
+

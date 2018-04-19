@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text,  } from 'react-native';
+import { View, Text } from 'react-native';
 import CircularImageButton from '../../components/common/CircularImageButton';
-import Styles from './style'
+import Styles from './style';
+import BxManager from '../../Managers/BxAPIManager';
 
 export default class DashboardScreen extends Component {
   static navigationOptions = ({ navigate, navigation }) => ({
@@ -20,6 +21,11 @@ export default class DashboardScreen extends Component {
   });
 
   render() {
+    BxManager.privateAPI.balance((isSuccess, object) => {
+      console.log("isSuccess: ", isSuccess)
+      console.log(object);
+    });
+
     return (
       <View style={Styles.view}>
         <Text>Hello!, This is DashboardScreen</Text>
