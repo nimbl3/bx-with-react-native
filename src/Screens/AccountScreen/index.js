@@ -16,7 +16,10 @@ export default class AccountScreen extends React.Component {
     title: 'Account',
     headerStyle: {
       backgroundColor: 'white',
+      borderBottomWidth: 0,
     },
+    headerLeft: null,
+
     headerRight: (
       <View style={styles.header}>
         <TextButton
