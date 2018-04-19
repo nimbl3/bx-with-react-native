@@ -40,7 +40,6 @@ const getQueryCredential = completion => {
         const response = {
           key: key,
           nonce: nonce,
-          secret: secret,
           signature: signagure,
         }
         completion(response);
