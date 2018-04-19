@@ -2,5 +2,7 @@ import React from 'react'
 import { View } from 'react-native'
 
 const component = (props) => {
-    return <View />
+    return <View {...props}/>
 }
+
+export default component;
