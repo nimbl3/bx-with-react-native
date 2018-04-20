@@ -6,6 +6,8 @@ import BxManager from '../../Managers/BxAPIManager';
 import WalletCollection from '../../components/screens/DashboardScreen/WalletCollection';
 import CurrentPrice from '../../components/screens/DashboardScreen/CurrentPrice';
 import Chart from '../../components/screens/DashboardScreen/Chart';
+import IconButton from '../../components/common/IconButton'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 export default class DashboardScreen extends Component {
   state = {
     balances: [
@@ -16,7 +18,6 @@ export default class DashboardScreen extends Component {
     headerStyle: {
       backgroundColor: 'white',
       borderBottomWidth: 0,
-
     },
     headerLeft: (
       <CircularImageButton
@@ -24,6 +25,17 @@ export default class DashboardScreen extends Component {
         onPress={() => {
           navigation.navigate('AccountScreen');
         }}
+      />
+    ),
+    headerRight: (
+      <IconButton
+      style={{marginRight: 15}}
+        name={"ios-notifications-outline"}
+        size={30}
+        onPress={() => {
+          alert("Notification Center !")
+        }}
+
       />
     ),
   });
