@@ -1,4 +1,8 @@
 import { StyleSheet } from 'react-native';
+import ScreenDimension from '../../../../../Helpers/ScreenDimension'
+
+const itemWidth = ScreenDimension.width * 200 / 375;
+const itemHeight = itemWidth * 64 / 200;
 
 const styles = (props) => StyleSheet.create({
   view: {
@@ -6,7 +10,11 @@ const styles = (props) => StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     borderRadius: 4,
-    padding: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
+
+    height: itemHeight,
+    width: itemWidth
   },
   leftContainer: {
     flexDirection: 'row',
@@ -23,7 +31,8 @@ const styles = (props) => StyleSheet.create({
     color: "white",
   },
   rightContainer: {
-    alignItems: 'flex-end'
+    alignItems: 'flex-end',
+    justifyContent: 'center'
   },
   walletLabel: {
     fontFamily: "BrixSansRegular",

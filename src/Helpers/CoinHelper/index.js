@@ -8,7 +8,7 @@ const imageURLPath = "https://d2v7vc3vnopnyy.cloudfront.net/img/coins/"
 const coinInfo = {
   BTC: {
     name: 'Bitcoin',
-    color: "#FF8E1C"
+    color: "#FFBA4D"
   },
   ETH: {
     name: 'Etherium',
@@ -105,7 +105,7 @@ const formatAmountFor = (symbol, amount) => {
   const currency = infoFor(symbol)
   if (currency.isPhysical) {
     return Number(amount).toFixed(2)
-  } 
+  }
   return Number(amount).toFixed(8)
 
 }

@@ -10,13 +10,13 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     flexShrink: 0,
     flexBasis: 10,
-    backgroundColor: 'pink'
   },
   market: {
     flexGrow: 4,
     flexShrink: 1,
     backgroundColor: 'green'
   }, 
+
   chart: {
     flexGrow: 5,
     backgroundColor: 'red'

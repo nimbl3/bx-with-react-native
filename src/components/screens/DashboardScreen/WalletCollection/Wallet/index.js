@@ -10,7 +10,7 @@ const component = (props) => {
   const Styles = Style({ backgroundColor: info.color })
 
   return (
-    <View style={Styles.view} {...props}>
+    <View style={Styles.view}>
       <View style={Styles.leftContainer}>
         <Image style={Styles.currencyIcon} source={{ uri: info.url || null }} />
         <Text numberOfLines={2} style={Styles.currencyLabel}>{info.name}</Text>
