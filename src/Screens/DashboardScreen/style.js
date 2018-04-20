@@ -4,13 +4,13 @@ const styles = StyleSheet.create({
   view: {
     flexGrow: 1,
     justifyContent: 'flex-start',
-    backgroundColor: 'red'
+    backgroundColor: 'white',
   },
   wallet: {
     flexGrow: 1,
     flexShrink: 0,
     flexBasis: 10,
-    backgroundColor: 'yellow'
+    backgroundColor: 'pink'
   },
   market: {
     flexGrow: 4,

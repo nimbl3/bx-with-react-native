@@ -7,7 +7,10 @@ import WalletCollection from '../../components/screens/DashboardScreen/WalletCol
 import CurrentPrice from '../../components/screens/DashboardScreen/CurrentPrice';
 import Chart from '../../components/screens/DashboardScreen/Chart';
 export default class DashboardScreen extends Component {
-  state = { balances: null };
+  state = {
+    balances: [
+    ]
+  };
   static navigationOptions = ({ navigate, navigation }) => ({
     title: 'Dashboard',
     headerStyle: {
@@ -24,19 +27,24 @@ export default class DashboardScreen extends Component {
   });
 
   fetchBalance() {
-    BxManager.privateAPI.balance((isSuccess, balances) => {
+    BxManager.privateAPI.balance((isSuccess, balances, error) => {
       if (!isSuccess) {
+        alert(error)
         return;
       }
       this.setState({ balances: balances });
-      console.log(this.state.balances);
     });
   }
 
-  render() {
-    if (!this.balances) {
+  componentDidMount() {
+    if (!this.state.balances || this.state.balances.length == 0) {
       this.fetchBalance();
     }
+  }
+
+  render() {
+
+    console.log("sent:", this.state.balances)
     return (
       <View style={Styles.view}>
         <WalletCollection style={Styles.wallet} items={this.state.balances} />
