@@ -18,45 +18,18 @@ export default class WalletCollection extends React.Component {
   _renderItem({ item }) {
     return <Wallet info={item} />;
   }
-  get pagination() {
-    const { activeSlide } = this.state;
-    const entries = this.props.items;
-    return (
-      <Pagination
-        dotsLength={5}
-        activeDotIndex={activeSlide}
-        containerStyle={{ backgroundColor: 'transparent' }}
-        dotStyle={{
-          width: 6,
-          height: 6,
-          borderRadius: 5,
-          marginHorizontal: 0,
-          backgroundColor: '#6497FC'
-        }}
-        inactiveDotStyle={{
-          width: 6,
-          height: 6,
-          borderRadius: 5,
-          marginHorizontal: 0,
-          backgroundColor: '#DDEAFE'
-        }}
-
-        inactiveDotScale={1}
-        style={{}}
-      />
-    );
-  }
 
   render() {
     const itemWidth = ScreenDimension.width * 200 / 375;
     const itemHeight = itemWidth * 64 / 200;
+    const { activeSlide } = this.state;
+    const entries = this.props.items;
     console.log("got:", this.props.items)
     return (
-      <View>
+      <View style={Style.view}>
         <Carousel layout={"default"}
           data={this.props.items}
           renderItem={this._renderItem}
-          style={Style.view}
           sliderWidth={ScreenDimension.width}
           itemWidth={itemWidth}
           itemHeight={itemHeight}
@@ -68,7 +41,27 @@ export default class WalletCollection extends React.Component {
           }
           }
         />
-        {this.pagination}
+        <Pagination
+          dotsLength={5}
+          activeDotIndex={activeSlide}
+          containerStyle={{ backgroundColor: 'transparent' }}
+          dotStyle={{
+            width: 6,
+            height: 6,
+            borderRadius: 5,
+            marginHorizontal: 0,
+            backgroundColor: '#6497FC'
+          }}
+          inactiveDotStyle={{
+            width: 6,
+            height: 6,
+            borderRadius: 5,
+            marginHorizontal: 0,
+            backgroundColor: '#DDEAFE'
+          }}
+          containerStyle={Style.indicatorContainer}
+          inactiveDotScale={1}
+        />
       </View>
     );
   }
