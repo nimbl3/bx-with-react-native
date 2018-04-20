@@ -3,12 +3,20 @@ import { View, Text } from 'react-native';
 import CircularImageButton from '../../components/common/CircularImageButton';
 import Styles from './style';
 import BxManager from '../../Managers/BxAPIManager';
-
+import WalletCollection from '../../components/screens/DashboardScreen/WalletCollection';
+import CurrentPrice from '../../components/screens/DashboardScreen/CurrentPrice';
+import Chart from '../../components/screens/DashboardScreen/Chart';
 export default class DashboardScreen extends Component {
+  state = {
+    balances: [
+    ]
+  };
   static navigationOptions = ({ navigate, navigation }) => ({
     title: 'Dashboard',
     headerStyle: {
       backgroundColor: 'white',
+      borderBottomWidth: 0,
+
     },
     headerLeft: (
       <CircularImageButton
@@ -20,18 +28,32 @@ export default class DashboardScreen extends Component {
     ),
   });
 
-  render() {
-    BxManager.privateAPI.balance((isSuccess, object) => {
-      // console.log(object);
+  fetchBalance() {
+    BxManager.privateAPI.balance((isSuccess, balances, error) => {
+      if (!isSuccess) {
+        alert(error)
+        return;
+      }
+      this.setState({ balances: balances });
     });
+  }
 
-    BxManager.publicAPI.ticker((isSuccess, object) => {
-      console.log(object)
-    })
+  componentDidMount() {
+    if (!this.state.balances || this.state.balances.length == 0) {
+      this.fetchBalance();
+    }
+  }
 
+  render() {
+
+    console.log("sent:", this.state.balances)
     return (
       <View style={Styles.view}>
-        <Text>Hello!, This is DashboardScreen</Text>
+        <WalletCollection style={Styles.wallet} items={this.state.balances} />
+        <View style={Styles.market}>
+          <CurrentPrice style={Styles.currentPrice} />
+          <Chart style={Styles.chart} />
+        </View>
       </View>
     );
   }

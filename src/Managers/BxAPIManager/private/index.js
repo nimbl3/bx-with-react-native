@@ -9,12 +9,12 @@ const balance = completion => {
     {},
     (isSuccess, responseObject) => {
       if (!isSuccess) {
-        completion(false, null);
+        completion(false, null, responseObject.error);
         return;
       }
 
       balanceMapper(responseObject, balance => {
-        completion(true, balance);
+        completion(true, balance, null);
       });
     }
   );
@@ -50,7 +50,11 @@ const order = (pairing, isBuy, amount, rate, completion) => {
       amount: amount,
       rate: rate,
     },
-    completion
+    (isSuccess, responseObject) => {
+      if (!isSuccess) {
+        completion(true, responseObject, responseObject.error);
+      }
+    } 
   );
 };
 

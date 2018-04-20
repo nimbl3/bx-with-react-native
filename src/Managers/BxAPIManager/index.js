@@ -1,6 +1,5 @@
-import publicAPI from './public'
-import privateAPI from './private'
-
+import publicAPI from './public';
+import privateAPI from './private';
 
 const hostname = 'https://bx.in.th/api/';
 
@@ -15,5 +14,3 @@ const endPoint = {
 };
 
 export default { publicAPI, privateAPI, hostname, endPoint };
-
-
