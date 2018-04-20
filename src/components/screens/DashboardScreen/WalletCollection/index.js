@@ -24,7 +24,6 @@ export default class WalletCollection extends React.Component {
     const itemHeight = itemWidth * 64 / 200;
     const { activeSlide } = this.state;
     const entries = this.props.items;
-    console.log("got:", this.props.items)
     return (
       <View style={Style.view}>
         <Carousel layout={"default"}
@@ -44,6 +43,7 @@ export default class WalletCollection extends React.Component {
         <Pagination
           dotsLength={5}
           activeDotIndex={activeSlide}
+          
           containerStyle={{ backgroundColor: 'transparent' }}
           dotStyle={{
             width: 6,
