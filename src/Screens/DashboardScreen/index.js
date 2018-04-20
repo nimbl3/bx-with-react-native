@@ -15,6 +15,8 @@ export default class DashboardScreen extends Component {
     title: 'Dashboard',
     headerStyle: {
       backgroundColor: 'white',
+      borderBottomWidth: 0,
+
     },
     headerLeft: (
       <CircularImageButton
