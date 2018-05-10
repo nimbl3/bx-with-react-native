@@ -1,49 +1,47 @@
-import React, { Component } from 'react';
-import { View, Text } from 'react-native';
-import CircularImageButton from '../../components/common/CircularImageButton';
-import Styles from './style';
-import BxManager from '../../Managers/BxAPIManager';
-import WalletCollection from '../../components/screens/DashboardScreen/WalletCollection';
-import CurrentPrice from '../../components/screens/DashboardScreen/CurrentPrice';
-import Chart from '../../components/screens/DashboardScreen/Chart';
-import IconButton from '../../components/common/IconButton'
-import Ionicons from 'react-native-vector-icons/Ionicons'
+import React, { Component } from "react";
+import { View, Text } from "react-native";
+import CircularImageButton from "../../components/common/CircularImageButton";
+import Styles from "./style";
+import BxManager from "../../Managers/BxAPIManager";
+import WalletCollection from "../../components/screens/DashboardScreen/WalletCollection";
+import CurrentPrice from "../../components/screens/DashboardScreen/CurrentPrice";
+import Chart from "../../components/screens/DashboardScreen/Chart";
+import IconButton from "../../components/common/IconButton";
+import Ionicons from "react-native-vector-icons/Ionicons";
 export default class DashboardScreen extends Component {
   state = {
-    balances: [
-    ]
+    balances: []
   };
   static navigationOptions = ({ navigate, navigation }) => ({
-    title: 'Dashboard',
+    title: "Dashboard",
     headerStyle: {
-      backgroundColor: 'white',
-      borderBottomWidth: 0,
+      backgroundColor: "white",
+      borderBottomWidth: 0
     },
     headerLeft: (
       <CircularImageButton
-        url={'https://avatars1.githubusercontent.com/u/6483170?s=460&v=4'}
+        url={"https://avatars1.githubusercontent.com/u/6483170?s=460&v=4"}
         onPress={() => {
-          navigation.navigate('AccountScreen');
+          navigation.navigate("AccountScreen");
         }}
       />
     ),
     headerRight: (
       <IconButton
-      style={{marginRight: 15}}
+        style={{ marginRight: 15 }}
         name={"ios-notifications-outline"}
         size={30}
         onPress={() => {
-          alert("Notification Center !")
+          alert("Notification Center !");
         }}
-
       />
-    ),
+    )
   });
 
   fetchBalance() {
     BxManager.privateAPI.balance((isSuccess, balances, error) => {
       if (!isSuccess) {
-        alert(error)
+        alert(error);
         return;
       }
       this.setState({ balances: balances });
@@ -57,8 +55,7 @@ export default class DashboardScreen extends Component {
   }
 
   render() {
-
-    console.log("sent:", this.state.balances)
+    console.log("sent:", this.state.balances);
     return (
       <View style={Styles.view}>
         <WalletCollection style={Styles.wallet} items={this.state.balances} />

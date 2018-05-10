@@ -7,20 +7,17 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   wallet: {
-    flexGrow: 4,
     flexShrink: 0,
   },
   market: {
     flexGrow: 1,
-    // flexShrink: 1,
-    backgroundColor: 'green'
+    flexShrink: 1,
   },
   currentPrice: {
-    // flexGrow: 2,
-    backgroundColor: 'blue'
+    flexGrow: 1,
   },
   chart: {
-    // flexGrow: 5,
+    flexGrow: 6,
     backgroundColor: 'red'
   },
 });
